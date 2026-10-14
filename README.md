@@ -21,13 +21,22 @@ npx vercel --prod --yes
    and a certified service-accessibility consultant review before publishing.
    Confirm the registration line (Practical Engineers and Technicians Law,
    5773-2012) matches Nataly's actual registration.
-2. **Domain**: the Open Graph tags (WhatsApp / social link preview) and the
-   canonical link point to `https://nataly-andruson-final-site.vercel.app/`.
-   If a custom domain is connected, replace that URL in the `<head>`.
+2. **Domain**: the live site is `https://natalyandruson.vercel.app/` (GitHub repo
+   `cindy12anderson-ui/natalyandruson`, auto-deployed by Vercel on every push).
+   The Open Graph tags and canonical link use that URL. If a custom domain is
+   connected later, replace it in the `<head>`.
 3. **The Bronze House** is marked "Status: In Progress". Remove that spec row
    once the project is complete.
 4. **Project "Area (sqm)"**: not included - no figures were provided.
 5. **Instagram handle** `@nataly_andruson_architecture`: confirm it is current.
+6. **Rights and consents** (cannot be solved in code - this is the real legal
+   exposure): written consent from each client whose home is shown; permission
+   from Munters to show its logo in the office photos; a licence from any
+   photographer or visualisation studio that produced the images.
+7. **Studio name**: the protected title "architect" is never used on the site,
+   but confirm with a lawyer that "Architecture" in the studio name is fine.
+8. **GitHub**: consider making the repo Private (Settings > General > Danger
+   Zone > Change visibility). Vercel keeps deploying from a private repo.
 
 ## Projects (10), in tab order
 | # | Project | Location | Photos | URL |
@@ -46,7 +55,25 @@ npx vercel --prod --yes
 A separate project (travertine-and-dark-wood house with a suspended fireplace)
 is still held back until its content and photos are finalised.
 
-## This round's changes
+## Latest round (October 2026, round 2)
+- Tighter spacing on Studio and Projects (less dead white space).
+- "Start a Project" is a gold-on-hover button again and opens an email to
+  Nataly with the subject "New Project Enquiry". It also copies the address
+  and shows a short message, so it still works on computers without a mail
+  app. Also added to the mobile menu.
+- Project titles capped at 48px.
+- Munters Office tile on the homepage refocused on the blue glass office.
+- Custom circle cursor removed (native cursor, as on the reference studios).
+- Terms of Use expanded: "as is" / no professional advice, no warranty and
+  limitation of liability, third-party links, trademarks in images, Israeli
+  law and Tel Aviv-Jaffa courts.
+- Studio page: a row of practice areas under the banner, a full-width image
+  band (The Bronze House staircase), and the Approach section on a dark band.
+- Contact page: split layout - the photograph in full on one side, contact
+  details on ivory on the other (stacked on mobile).
+- Canonical / Open Graph URL updated to natalyandruson.vercel.app.
+
+## Previous round
 **Content**
 - Homepage credentials strip (15+ years, etc.) removed.
 - Studio page: "Why Clients Choose" and "The Design Process" removed, replaced

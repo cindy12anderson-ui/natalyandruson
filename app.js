@@ -261,6 +261,27 @@
     }
   });
 
+  /* ---------- Start a Project: open mail app + copy address as fallback ---------- */
+  var EMAIL = 'natalyandruson@gmail.com';
+  var toastTimer;
+  function showToast(msg) {
+    var t = $('#toast'); if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { t.classList.remove('show'); }, 4200);
+  }
+  function mailCta() {
+    closeMenus();
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(EMAIL).then(function () {
+        showToast('Opening your email app. Address copied: ' + EMAIL);
+      }, function () { showToast('Email the studio at ' + EMAIL); });
+    } else {
+      showToast('Email the studio at ' + EMAIL);
+    }
+  }
+
   /* ---------- Single delegated click handler (no inline JS -> strict CSP) ---------- */
   document.addEventListener('click', function (e) {
     var el = e.target.closest('[data-go],[data-action],[data-project],[data-lb]');
@@ -284,6 +305,7 @@
       return;
     }
     switch (el.dataset.action) {
+      case 'mail-cta': mailCta(); break;
       case 'menu': toggleMobileMenu(); break;
       case 'a11y': toggleA11y(); break;
       case 'font': setFontSize(parseInt(el.dataset.dir, 10)); break;
@@ -304,25 +326,7 @@
     h.focus();
   });
 
-  /* ---------- Custom cursor + hero parallax (desktop, motion allowed) ---------- */
-  var fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
-  if (fine && !reduceMotion) {
-    var dot = $('#cursor-dot'), ring = $('#cursor-ring');
-    var mx = 0, my = 0, rx = 0, ry = 0;
-    window.addEventListener('mousemove', function (e) {
-      mx = e.clientX; my = e.clientY;
-      document.body.classList.add('has-cursor');
-      dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-      var t = e.target.closest('a,button,.b-item,.proj-tab,.ed-cover,.ed-gallery-item');
-      ring.classList.toggle('cursor-hover', !!t);
-    }, { passive: true });
-    window.addEventListener('click', function () { document.body.classList.remove('has-cursor'); }, { passive: true });
-    (function tick() {
-      rx += (mx - rx) * 0.14; ry += (my - ry) * 0.14;
-      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-      requestAnimationFrame(tick);
-    })();
-  }
+  /* ---------- Hero parallax (motion allowed) ---------- */
   if (!reduceMotion) {
     var heroMarkInner = $('#hero-mark-inner'), heroEl = $('.hero');
     var parallax = function () {

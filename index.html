@@ -6,14 +6,14 @@
 <title>Nataly Andruson - Architecture &amp; Interior Design</title>
 <meta name="description" content="Nataly Andruson is an Architectural Practical Engineer and interior designer based in Israel, working internationally on private residences and commercial spaces.">
 <link rel="icon" type="image/png" href="images/logo_favicon.png">
-<link rel="canonical" href="https://nataly-andruson-final-site.vercel.app/">
+<link rel="canonical" href="https://natalyandruson.vercel.app/">
 <meta name="theme-color" content="#F7F4EF">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nataly Andruson">
 <meta property="og:title" content="Nataly Andruson - Architecture &amp; Interior Design">
 <meta property="og:description" content="Architecture and interiors for private residences and commercial spaces. Based in Israel, working internationally.">
-<meta property="og:url" content="https://nataly-andruson-final-site.vercel.app/">
-<meta property="og:image" content="https://nataly-andruson-final-site.vercel.app/images/og-image.jpg">
+<meta property="og:url" content="https://natalyandruson.vercel.app/">
+<meta property="og:image" content="https://natalyandruson.vercel.app/images/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="A kitchen interior designed by Nataly Andruson">
@@ -36,11 +36,6 @@ img{display:block;width:100%;height:100%;object-fit:cover;filter:contrast(1.045)
 .nav-logo-mark,.foot-mark-row img{filter:none}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:inherit;background:none;border:none}
-.cursor-dot{position:fixed;top:0;left:0;width:6px;height:6px;border-radius:50%;background:#C2A878;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);opacity:0;transition:opacity .25s ease}
-.cursor-ring{position:fixed;top:0;left:0;width:30px;height:30px;border-radius:50%;border:1px solid rgba(194,168,120,.5);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:0;transition:opacity .25s ease,width .25s cubic-bezier(.2,.6,.2,1),height .25s cubic-bezier(.2,.6,.2,1),border-color .25s ease}
-body.has-cursor .cursor-dot,body.has-cursor .cursor-ring{opacity:1}
-body.has-cursor .cursor-ring.cursor-hover{width:46px;height:46px;border-color:rgba(194,168,120,.85)}
-@media(hover:none),(pointer:coarse){.cursor-dot,.cursor-ring{display:none}}
 
 :root{
   --ivory:#F7F4EF;
@@ -66,7 +61,7 @@ html.fs-2{font-size:125%}
 html.fs--1{font-size:93.75%}
 
 a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent-text);outline-offset:3px}
-footer a:focus-visible,footer button:focus-visible,.contact-wrap a:focus-visible,.lightbox button:focus-visible,.hero button:focus-visible,.a11y-panel a:focus-visible,.a11y-panel button:focus-visible{outline-color:var(--accent)}
+footer a:focus-visible,footer button:focus-visible,.lightbox button:focus-visible,.hero button:focus-visible,.approach a:focus-visible,.a11y-panel a:focus-visible,.a11y-panel button:focus-visible{outline-color:var(--accent)}
 h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
@@ -103,10 +98,10 @@ a.nav-cta.nav-cta-mobile{display:none}
 .nav:not(.on-light) .nav-link.active{color:#fff}
 .nav-right{display:flex;align-items:center;gap:22px;justify-self:end}
 .nav-logo-mark{height:26px;width:auto;display:block;opacity:.92}
-.nav-cta{display:inline-flex;align-items:center;white-space:nowrap;font-size:0.75rem;letter-spacing:.16em;text-transform:uppercase;padding:4px 0;border-bottom:1px solid var(--accent);transition:color .25s,border-color .25s}
+.nav-cta{display:inline-flex;align-items:center;white-space:nowrap;font-size:0.6875rem;letter-spacing:.16em;text-transform:uppercase;padding:8px 16px;border:1px solid currentColor;transition:background .25s,color .25s,border-color .25s}
 .nav.on-light .nav-cta{color:var(--charcoal)}
 .nav:not(.on-light) .nav-cta{color:#fff}
-.nav.on-light .nav-cta:hover{color:var(--accent-text);border-color:var(--accent-text)}
+.nav .nav-cta:hover,.nav .nav-cta:active,.nav .nav-cta:focus-visible{background:var(--accent);border-color:var(--accent);color:var(--charcoal2)}
 .a11y-float{border:1px solid rgba(255,255,255,.22)!important;position:fixed;bottom:24px;left:24px;display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:var(--charcoal2);color:#fff;border:none;opacity:.88;box-shadow:0 4px 16px rgba(0,0,0,.22);transition:opacity .2s,transform .2s;z-index:1090}
 .a11y-float:hover{opacity:1;transform:scale(1.06)}
 .a11y-float svg{width:17px;height:17px}
@@ -119,6 +114,7 @@ a.nav-cta.nav-cta-mobile{display:none}
 
 .mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:var(--ivory);border-bottom:0.5px solid var(--stone);z-index:999;flex-direction:column;box-shadow:0 12px 24px rgba(0,0,0,.08)}
 .mobile-menu.open{display:flex}
+.mobile-menu-cta{color:var(--accent-text)!important;letter-spacing:.12em!important;text-transform:uppercase;font-size:.8125rem!important}
 .mobile-menu-link{display:block;width:100%;text-align:left;padding:18px 24px;font-size:0.9375rem;letter-spacing:.06em;color:var(--text-mid);border-bottom:0.5px solid var(--stone)}
 .mobile-menu-link:last-child{border-bottom:none}
 .mobile-menu-link.active{color:var(--charcoal);font-weight:500}
@@ -190,6 +186,7 @@ a.nav-cta.nav-cta-mobile{display:none}
 .bento .b1{grid-row:1/3}
 .b-item{display:block;position:relative;overflow:hidden;cursor:pointer}
 .b-item img{transition:transform .8s ease}
+.b-focus-low img{object-position:center 74%}
 .b-item:hover img{transform:scale(1.045)}
 .b-cap{position:absolute;bottom:0;left:0;right:0;padding:18px 20px;background:linear-gradient(180deg,transparent,rgba(20,18,16,.6));opacity:0;transition:opacity .3s}
 .b-item:hover .b-cap,.b-item:focus-visible .b-cap{opacity:1}
@@ -200,15 +197,21 @@ a.nav-cta.nav-cta-mobile{display:none}
 /* full-bleed editorial strip */
 .strip{position:relative;height:84vh;min-height:460px;max-height:820px;overflow:hidden;margin-bottom:0}
 .strip img{width:100%;height:100%;object-fit:cover}
+.studio-strip{height:78vh;max-height:780px}
+.studio-strip img{object-position:center 40%}
+.disciplines{list-style:none;display:flex;justify-content:center;flex-wrap:wrap;max-width:1100px;margin:0 auto 56px;padding:22px 24px;border-top:0.5px solid var(--stone);border-bottom:0.5px solid var(--stone)}
+.disciplines li{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.25rem;color:var(--charcoal);padding:0 34px;border-left:0.5px solid var(--accent)}
+.disciplines li:first-child{border-left:none}
+@media(max-width:860px){.disciplines{flex-direction:column;align-items:center;gap:8px;margin:0 24px 40px;padding:20px 0}.disciplines li{border-left:none;padding:0}}
 .strip-veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,18,16,.62) 0%,rgba(20,18,16,.15) 58%)}
 .strip-cap{position:absolute;left:60px;bottom:48px;z-index:2;max-width:420px}
 .strip-cap-eyebrow{font-size:0.7188rem;letter-spacing:.2em;text-transform:uppercase;color:var(--champagne);margin-bottom:10px;text-shadow:0 1px 8px rgba(0,0,0,.5)}
 .strip-cap-h{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.1vw,24px);font-weight:300;color:#fdfcfa;line-height:1.3;text-shadow:0 2px 14px rgba(0,0,0,.55)}
 
 /* EDITORIAL - Selected Projects page, magazine-style per project */
-.masonry-head{padding:120px 60px 50px;text-align:center}
+.masonry-head{padding:104px 60px 40px;text-align:center}
 
-.studio-banner{padding:140px 28px 64px;text-align:center}
+.studio-banner{padding:112px 28px 40px;text-align:center}
 .studio-banner-eyebrow{display:flex;align-items:center;justify-content:center;gap:22px;font-size:0.75rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent-text);margin-bottom:24px}
 .sbe-text{margin-right:-.28em}
 .studio-banner-dash{width:72px;height:1px;background:var(--accent-deep);flex-shrink:0;display:inline-block}
@@ -218,7 +221,7 @@ a.nav-cta.nav-cta-mobile{display:none}
 .studio-banner-loc{margin-top:10px;font-size:0.6875rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-mid);font-weight:300}
 .studio-banner-loc .loc-dot{color:var(--accent-text);margin:0 5px}
 @media(max-width:860px){
-  .studio-banner{padding:110px 24px 50px}
+  .studio-banner{padding:100px 24px 32px}
   .studio-banner-eyebrow{gap:14px;font-size:0.6875rem}
   .studio-banner-dash{width:44px}
 }
@@ -237,9 +240,9 @@ a.nav-cta.nav-cta-mobile{display:none}
 .img-btn:focus-visible{outline-offset:-4px}
 .ed-cover img{transition:transform .9s ease;object-fit:contain}
 .ed-cover:hover img{transform:scale(1.025)}
-.ed-info{display:grid;grid-template-columns:1.6fr 1fr;gap:60px;max-width:1400px;margin:0 auto;padding:64px 60px 56px}
+.ed-info{display:grid;grid-template-columns:1.6fr 1fr;gap:60px;max-width:1400px;margin:0 auto;padding:52px 60px 44px}
 .ed-eyebrow{font-size:0.7188rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-text);margin-bottom:14px}
-.ed-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4.2vw,56px);line-height:1.1;font-weight:300;color:var(--charcoal);margin-bottom:20px}
+.ed-title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,3.6vw,48px);line-height:1.1;font-weight:300;color:var(--charcoal);margin-bottom:20px}
 .ed-desc{font-size:1.0312rem;line-height:1.85;color:var(--text-mid);max-width:600px}
 .ed-specs{border-left:0.5px solid var(--stone);padding-left:40px;display:flex;flex-direction:column;gap:22px}
 .ed-spec-label{display:block;font-size:0.6875rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-text);margin-bottom:5px}
@@ -264,19 +267,19 @@ a.nav-cta.nav-cta-mobile{display:none}
 .studio-split-content{padding:56px 48px;display:flex;flex-direction:column;justify-content:center}
 .studio-col-eyebrow{font-size:0.7188rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent-text);margin-bottom:18px}
 .studio-col-eyebrow-2{margin-top:36px}
-.studio-col-lead{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5625rem;font-weight:300;color:var(--charcoal);line-height:1.4;margin-bottom:22px;max-width:620px}
-.studio-col-p{font-size:1rem;line-height:1.85;color:var(--text-mid);margin-bottom:15px;max-width:620px}
+.studio-col-lead{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5625rem;font-weight:300;color:var(--charcoal);line-height:1.4;margin-bottom:22px;max-width:720px}
+.studio-col-p{font-size:1rem;line-height:1.85;color:var(--text-mid);margin-bottom:15px;max-width:720px}
 
-.approach{padding:96px 60px 104px;border-bottom:0.5px solid var(--stone)}
-.approach-h{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.6vw,44px);font-weight:300;text-align:center;color:var(--charcoal);margin-bottom:64px}
+.approach{padding:76px 60px 84px;background:linear-gradient(180deg,var(--charcoal2) 0%,#171513 100%)}
+.approach-h{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.6vw,44px);font-weight:300;text-align:center;color:var(--on-dark);margin-bottom:48px}
 .approach-list{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:56px;max-width:1080px;margin:0 auto;padding:0}
-.approach-item{border-top:0.5px solid var(--accent);padding-top:26px}
-.approach-num{display:block;font-family:'Cormorant Garamond',serif;font-size:1.0625rem;color:var(--accent-text);letter-spacing:.08em;margin-bottom:14px}
-.approach-t{font-family:'Cormorant Garamond',serif;font-size:1.625rem;font-weight:400;color:var(--charcoal);margin-bottom:12px}
-.approach-d{font-size:1rem;line-height:1.8;color:var(--text-mid)}
+.approach-item{border-top:0.5px solid rgba(194,168,120,.5);padding-top:26px}
+.approach-num{display:block;font-family:'Cormorant Garamond',serif;font-size:1.0625rem;color:var(--accent);letter-spacing:.08em;margin-bottom:14px}
+.approach-t{font-family:'Cormorant Garamond',serif;font-size:1.625rem;font-weight:400;color:var(--on-dark);margin-bottom:12px}
+.approach-d{font-size:1rem;line-height:1.8;color:var(--on-dark-mid)}
 @media(max-width:860px){
-  .approach{padding:64px 24px 72px}
-  .approach-h{margin-bottom:44px}
+  .approach{padding:56px 24px 64px}
+  .approach-h{margin-bottom:36px}
   .approach-list{grid-template-columns:1fr;gap:40px;max-width:520px}
 }
 
@@ -287,23 +290,26 @@ a.nav-cta.nav-cta-mobile{display:none}
 }
 
 /* CONTACT - Start a Project */
-.contact-wrap{position:relative;min-height:88vh;display:flex;align-items:center;justify-content:center;padding:160px 60px 110px;text-align:center;overflow:hidden}
-.contact-bg{position:absolute;inset:0;z-index:0}
-.contact-bg img{width:100%;height:100%;object-fit:cover}
-.contact-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,13,12,.82) 0%,rgba(15,13,12,.74) 50%,rgba(15,13,12,.86) 100%)}
-.contact-inner{max-width:560px;position:relative;z-index:1}
-.contact-eyebrow{font-size:0.7188rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:26px;text-shadow:0 1px 8px rgba(0,0,0,.4)}
-.contact-h{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,44px);font-weight:300;color:var(--on-dark);line-height:1.2;text-shadow:0 2px 14px rgba(0,0,0,.5)}
-.contact-p{margin-top:24px;font-size:1.0625rem;line-height:1.8;color:var(--on-dark-mid);text-shadow:0 1px 8px rgba(0,0,0,.4)}
-.contact-p-sub{margin-top:10px;font-size:0.8125rem;color:rgba(242,238,231,.62)}
-.contact-cards{margin-top:32px;display:flex;flex-direction:column;gap:0;width:100%;max-width:380px}
-.contact-card{display:flex;align-items:center;gap:16px;padding:26px 4px;border-bottom:0.5px solid rgba(255,255,255,.18);text-align:left;color:var(--on-dark)}
-.contact-card:last-child{border-bottom:none}
-.contact-card-icon{width:34px;height:34px;border-radius:50%;border:0.5px solid rgba(255,255,255,.45);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;padding-top:var(--nav-h)}
+.contact-media{position:relative;overflow:hidden;min-height:520px;background:var(--stone)}
+.contact-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.contact-inner{display:flex;flex-direction:column;justify-content:center;padding:72px clamp(28px,6vw,104px);background:var(--ivory)}
+.contact-eyebrow{font-size:0.7188rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent-text);margin-bottom:22px}
+.contact-h{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,3.8vw,52px);font-weight:300;color:var(--charcoal);line-height:1.15}
+.contact-p{margin-top:20px;font-size:1.0625rem;line-height:1.8;color:var(--text-mid);max-width:440px}
+.contact-cards{margin-top:40px;display:flex;flex-direction:column;width:100%;max-width:440px;border-top:0.5px solid var(--stone)}
+.contact-card{display:flex;align-items:center;gap:18px;padding:22px 0;border-bottom:0.5px solid var(--stone);text-align:left;color:var(--charcoal)}
+.contact-card-icon{width:36px;height:36px;border-radius:50%;border:0.5px solid var(--accent);color:var(--accent-text);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .25s,color .25s}
 .contact-card-icon svg{width:14px;height:14px}
+.contact-card:hover .contact-card-icon{background:var(--accent);color:var(--charcoal2)}
 .contact-card-text{display:flex;flex-direction:column}
-.contact-card-label{font-size:0.6875rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
-.contact-card-value{font-size:0.9688rem;color:var(--on-dark);word-break:break-word}
+.contact-card-label{font-size:0.6875rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);margin-bottom:3px}
+.contact-card-value{font-size:0.9688rem;color:var(--charcoal);overflow-wrap:anywhere}
+@media(max-width:860px){
+  .contact-wrap{grid-template-columns:1fr;min-height:0}
+  .contact-media{min-height:0;height:44vh}
+  .contact-inner{padding:44px 24px 64px}
+}
 
 /* FOOTER */
 .cta-band{background:var(--ivory);padding:12px 60px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;border-top:0.5px solid var(--stone);border-bottom:0.5px solid var(--stone)}
@@ -407,15 +413,14 @@ footer{background:linear-gradient(180deg,var(--charcoal2) 0%,#141210 100%);color
   .hero-loc .loc-part:last-child,.studio-banner-loc .loc-part:last-child{margin-top:6px}
 }
 @media(max-width:640px){
-  .contact-wrap{padding:130px 24px 90px}
   footer{padding-bottom:84px}
 }
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,12px);background:var(--charcoal2);color:var(--on-dark);font-size:.8125rem;letter-spacing:.04em;padding:12px 20px;border:0.5px solid rgba(194,168,120,.5);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:6000;max-width:calc(100% - 32px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
 </style>
 </head>
 <body>
 
-<div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
-<div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
 
 <a href="#main" class="skip-link">Skip to main content</a>
 
@@ -433,7 +438,7 @@ footer{background:linear-gradient(180deg,var(--charcoal2) 0%,#141210 100%);color
     <a class="nav-link" href="#/contact" data-go="contact" data-page="contact">Contact</a>
   </div>
   <div class="nav-right">
-    <a class="nav-cta nav-cta-desktop" href="#/contact" data-go="contact">Start a Project</a>
+    <a class="nav-cta nav-cta-desktop" href="mailto:natalyandruson@gmail.com?subject=New%20Project%20Enquiry" data-action="mail-cta">Start a Project</a>
     <button class="hamburger-btn" data-action="menu" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" id="hamburger-toggle">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       <span class="hamburger-label">Menu</span>
@@ -450,6 +455,7 @@ footer{background:linear-gradient(180deg,var(--charcoal2) 0%,#141210 100%);color
   <a class="mobile-menu-link" href="#/projects" data-go="projects" data-page="projects">Projects</a>
   <a class="mobile-menu-link" href="#/studio" data-go="studio" data-page="studio">Studio</a>
   <a class="mobile-menu-link" href="#/contact" data-go="contact" data-page="contact">Contact</a>
+  <a class="mobile-menu-link mobile-menu-cta" href="mailto:natalyandruson@gmail.com?subject=New%20Project%20Enquiry" data-action="mail-cta">Start a Project</a>
 </div>
 
 <div class="a11y-panel" id="a11y-panel" role="dialog" aria-label="Accessibility settings">
@@ -516,7 +522,7 @@ footer{background:linear-gradient(180deg,var(--charcoal2) 0%,#141210 100%);color
       <img sizes="(max-width:860px) 100vw, 28vw" src="images/p8_living_fireplace_hero-1600.webp" srcset="images/p8_living_fireplace_hero-800.webp 800w, images/p8_living_fireplace_hero-1600.webp 1600w" data-full="images/p8_living_fireplace_hero-1600.webp" width="1600" height="2000" alt="The Noir Apartment, Azur, Israel" loading="lazy">
       <div class="b-cap"><div class="b-cap-name">The Noir Apartment</div><div class="b-cap-meta">Residential</div></div>
     </a>
-    <a class="b-item" href="#/projects/munters" data-go="projects" data-project="p6">
+    <a class="b-item b-focus-low" href="#/projects/munters" data-go="projects" data-project="p6">
       <img sizes="(max-width:860px) 100vw, 28vw" src="images/p6_private_office_glass-1600.webp" srcset="images/p6_private_office_glass-800.webp 800w, images/p6_private_office_glass-1600.webp 1600w" data-full="images/p6_private_office_glass-1600.webp" width="1600" height="2000" alt="Munters Office, Petah Tikva, Israel" loading="lazy">
       <div class="b-cap"><div class="b-cap-name">Munters Office</div><div class="b-cap-meta">Commercial</div></div>
     </a>
@@ -910,6 +916,12 @@ footer{background:linear-gradient(180deg,var(--charcoal2) 0%,#141210 100%);color
     <div class="studio-banner-loc"><span class="loc-part">Based in Israel</span><span class="loc-dot" aria-hidden="true">·</span><span class="loc-part">Working Internationally</span></div>
   </div>
 
+  <ul class="disciplines reveal" aria-label="Areas of practice">
+    <li>Private Residences</li>
+    <li>Multi-Family Developments</li>
+    <li>Commercial Interiors</li>
+  </ul>
+
   <div class="studio-split reveal">
     <div class="studio-split-img"><img sizes="(max-width:860px) 100vw, 40vw" src="images/nataly_milan-682.webp" srcset="images/nataly_milan-682.webp 682w" data-full="images/nataly_milan-682.webp" width="682" height="1024" alt="Nataly Andruson, Milan Design Week" loading="lazy"></div>
     <div class="studio-split-content">
@@ -922,6 +934,15 @@ footer{background:linear-gradient(180deg,var(--charcoal2) 0%,#141210 100%);color
       <div class="studio-col-lead">Architecture and interior design are approached as a single, continuous design process, where every decision contributes to a cohesive whole.</div>
       <p class="studio-col-p">Thoughtful planning forms the foundation of every project. Guided by clarity, proportion, natural materials, and meticulous attention to detail, the studio creates architecture and interiors that are functional, timeless, and carefully considered.</p>
       <p class="studio-col-p">Rather than following trends, the studio is committed to creating spaces designed to endure, balancing functionality, proportion, and lasting quality.</p>
+    </div>
+  </div>
+
+  <div class="strip studio-strip reveal">
+    <img src="images/p10_staircase_media_wall-1600.webp" srcset="images/p10_staircase_media_wall-800.webp 800w, images/p10_staircase_media_wall-1600.webp 1600w, images/p10_staircase_media_wall-2400.webp 2400w" sizes="100vw" width="2560" height="1440" alt="The Bronze House, Herzliya - folded staircase in bronze and stone" loading="lazy">
+    <div class="strip-veil"></div>
+    <div class="strip-cap">
+      <div class="strip-cap-eyebrow">The Bronze House, Herzliya</div>
+      <div class="strip-cap-h">Material, light, and proportion, considered as one.</div>
     </div>
   </div>
 
@@ -978,7 +999,7 @@ footer{background:linear-gradient(180deg,var(--charcoal2) 0%,#141210 100%);color
 
 <div class="page" id="page-contact">
   <div class="contact-wrap">
-    <div class="contact-bg"><img src="images/p4_exterior_cantilever_hero-1600.webp" srcset="images/p4_exterior_cantilever_hero-800.webp 800w, images/p4_exterior_cantilever_hero-1600.webp 1600w" sizes="100vw" data-full="images/p4_exterior_cantilever_hero-1600.webp" width="1600" height="2000" alt="" loading="lazy"></div>
+    <div class="contact-media"><img src="images/p4_exterior_cantilever_hero-1600.webp" srcset="images/p4_exterior_cantilever_hero-800.webp 800w, images/p4_exterior_cantilever_hero-1600.webp 1600w" sizes="(max-width:860px) 100vw, 50vw" data-full="images/p4_exterior_cantilever_hero-1600.webp" width="1600" height="2000" alt="" fetchpriority="high"></div>
     <div class="contact-inner">
       <div class="contact-eyebrow">Contact</div>
       <h1 class="contact-h">Considering a New Project?</h1>
@@ -1058,7 +1079,12 @@ footer{background:linear-gradient(180deg,var(--charcoal2) 0%,#141210 100%);color
     <p><strong>Your rights:</strong> Under the Israeli Protection of Privacy Law, 5741-1981, you may request access to, correction of, or deletion of your personal data at any time by writing to natalyandruson@gmail.com.</p>
 
     <h2 id="legal-terms">Terms of Use</h2>
-    <p>By accessing this website you agree to these terms. Project images are displayed with client consent. Visualisations illustrate design intent and may differ from the completed project. This website and its content are governed by the laws of the State of Israel.</p>
+    <p>By accessing this website you agree to these terms. The website and its content are provided "as is", for the general presentation of the studio's work only. Nothing on this website constitutes professional, engineering, or planning advice, or an offer capable of acceptance. Services are provided only under a signed written agreement.</p>
+    <p>Project images are displayed with client consent. Visualisations illustrate design intent and may differ from the completed project. Project descriptions are general and do not represent specifications, dimensions, schedules, or costs.</p>
+    <p>While care is taken to keep this website accurate and available, no warranty is given as to the completeness or accuracy of its content or its uninterrupted availability. To the fullest extent permitted by law, the studio is not liable for any loss or damage arising from the use of, or reliance on, this website.</p>
+    <p>Links to third-party services, including WhatsApp, Instagram, and Facebook, are provided for convenience. The studio is not responsible for their content, availability, or privacy practices.</p>
+    <p>Trademarks and logos that appear within project images belong to their respective owners and are shown solely to document completed work.</p>
+    <p>These terms and any matter relating to this website are governed by the laws of the State of Israel. The competent courts of Tel Aviv-Jaffa shall have exclusive jurisdiction.</p>
 
     <h2 id="legal-client">Client Agreement</h2>
     <p>All design services are provided under a written agreement signed before work begins, covering scope of services, fees, payment schedule, intellectual property rights, and project timeline. Nataly Andruson retains full intellectual property rights over all design concepts, drawings, and creative works produced, unless explicitly transferred in writing.</p>
@@ -1120,6 +1146,7 @@ footer{background:linear-gradient(180deg,var(--charcoal2) 0%,#141210 100%);color
 </div>
 
 <span id="new-window" hidden>Opens in a new window</span>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="app.js" defer></script>
 
 </body>
