@@ -67,8 +67,8 @@ is still held back until its content and photos are finalised.
 - Terms of Use expanded: "as is" / no professional advice, no warranty and
   limitation of liability, third-party links, trademarks in images, Israeli
   law and Tel Aviv-Jaffa courts.
-- Studio page: a row of practice areas under the banner, a full-width image
-  band (The Bronze House staircase), and the Approach section on a dark band.
+- Studio page: a row of practice areas under the banner, then About, then the
+  Approach section on a warm sand band (#EFE9DF) before the closing call to action.
 - Contact page: split layout - the photograph in full on one side, contact
   details on ivory on the other (stacked on mobile).
 - Canonical / Open Graph URL updated to natalyandruson.vercel.app.
