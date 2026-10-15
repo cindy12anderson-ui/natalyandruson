@@ -1,56 +1,72 @@
 # Nataly Andruson - Website
 
-Single-page site (`index.html` + `app.js`) with self-hosted fonts and responsive WebP images.
+Static multi-page site for **https://natalyandruson.com** (GitHub repo
+`cindy12anderson-ui/natalyandruson`, deployed automatically by Vercel on every push).
 
-## Deploy
-Drag-and-drop this folder onto Vercel, or run any static file server.
-`vercel.json` sets the security headers (Content-Security-Policy, HSTS,
-X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy,
-Cross-Origin-Opener-Policy) and cache headers for fonts and images.
-Netlify users should convert it to a `_headers` file with the same values.
+## Pages and URLs (round 3: technical SEO)
+| URL | File |
+|---|---|
+| `/` | `index.html` |
+| `/projects/<project>` (10 pages) | `projects/<project>.html` |
+| `/studio` | `studio.html` |
+| `/contact` | `contact.html` |
+| `/legal` (+ `#legal-privacy`, `#legal-terms`, `#legal-accessibility`) | `legal.html` |
+| custom 404 | `404.html` |
 
-To update the existing Vercel deployment, copy these files into the local
-folder that already has the hidden `.vercel` folder, then run:
-```
-npx vercel --prod --yes
-```
+`/projects` redirects to the first project. `vercel.json` sets `cleanUrls` (no
+`.html` in addresses), removes trailing slashes, and permanently redirects
+`natalyandruson.vercel.app` to `natalyandruson.com`. Old links with `#/` (for
+example `/#/projects/bronze`) are forwarded to the new address by `app-init.js`.
 
-## Before going live - please review
-1. **Legal page**: Business details, Privacy Policy, Terms, Client Agreement
-   and Accessibility Statement were rewritten in October 2026. Have a lawyer
-   and a certified service-accessibility consultant review before publishing.
-   Confirm the registration line (Practical Engineers and Technicians Law,
-   5773-2012) matches Nataly's actual registration.
-2. **Domain**: the live site is `https://natalyandruson.vercel.app/` (GitHub repo
-   `cindy12anderson-ui/natalyandruson`, auto-deployed by Vercel on every push).
-   The Open Graph tags and canonical link use that URL. If a custom domain is
-   connected later, replace it in the `<head>`.
-3. **The Bronze House** is marked "Status: In Progress". Remove that spec row
-   once the project is complete.
-4. **Project "Area (sqm)"**: not included - no figures were provided.
-5. **Instagram handle** `@nataly_andruson_architecture`: confirm it is current.
-6. **Rights and consents** (cannot be solved in code - this is the real legal
-   exposure): written consent from each client whose home is shown; permission
-   from Munters to show its logo in the office photos; a licence from any
-   photographer or visualisation studio that produced the images.
-7. **Studio name**: the protected title "architect" is never used on the site,
-   but confirm with a lawyer that "Architecture" in the studio name is fine.
-8. **GitHub**: consider making the repo Private (Settings > General > Danger
-   Zone > Change visibility). Vercel keeps deploying from a private repo.
+## What was added for search engines
+- Every page is full HTML that works without JavaScript; a unique title,
+  meta description, canonical URL and social preview (Open Graph) per page.
+- One `h1` per page (on project pages, the project name).
+- Structured data (JSON-LD): the studio (ProfessionalService), Nataly
+  (Person, "Interior Designer and Architectural Practical Engineer" - never
+  "architect"), each project (CreativeWork with city), breadcrumbs.
+- Descriptive alt text on every project photo.
+- `sitemap.xml` (14 pages + all project images) and `robots.txt` (search
+  engines and AI assistants allowed).
+- Per-project preview images in `images/og/` for WhatsApp and social shares.
+
+## Google Search Console (do once, after this version is live)
+1. Go to https://search.google.com/search-console and choose **Add property**
+   > **Domain** > `natalyandruson.com`.
+2. Google shows a **TXT record**. In Vercel: Team > Domains >
+   natalyandruson.com > DNS Records > Add: type `TXT`, name `@`, value = the
+   code from Google. Wait a few minutes, then click **Verify** in Google.
+3. In Search Console > **Sitemaps**, submit `sitemap.xml`.
+4. Use **URL Inspection** on the homepage and a project page and click
+   **Request indexing**.
+
+## Still to review (outside the code)
+1. Lawyer and certified accessibility consultant review of the Legal page.
+2. Written client consent for published homes; permission from Munters for its
+   logo; licences for any photos or visualisations made by third parties.
+3. "The Bronze House" shows "Status: In Progress" - remove when complete.
+4. Consider making the GitHub repo Private (Vercel keeps deploying).
+5. Off-site: Google Business Profile, Houzz, LinkedIn, Pinterest, and real
+   Google reviews from clients - these drive local rankings more than code.
+
+## Editing later
+Pages are generated from one template, so a text change that appears on every
+page (nav, footer) must be made in every HTML file. For larger edits, ask for
+a rebuild rather than editing the files by hand.
 
 ## Projects (10), in tab order
 | # | Project | Location | Photos | URL |
 |---|---|---|---|---|
-| 1 | The Linear Apartment | Herzliya | 7 | `#/projects/linear` |
-| 2 | The Bronze House (in progress) | Herzliya | 11 | `#/projects/bronze` |
-| 3 | The Courtyard Villa | Herzliya | 10 | `#/projects/courtyard` |
-| 4 | The Sage House | Herzliya | 11 | `#/projects/sage` |
-| 5 | The Levanto House | Ra'anana | 11 | `#/projects/levanto` |
-| 6 | Munters Office | Petah Tikva | 11 | `#/projects/munters` |
-| 7 | The Ember Loft | Tel Aviv | 11 | `#/projects/ember` |
-| 8 | The Noir Apartment | Azur | 13 | `#/projects/noir` |
-| 9 | The Travertine Apartment | Herzliya | 8 | `#/projects/travertine` |
-| 10 | The Graphite Apartment | Tel Aviv | 9 | `#/projects/graphite` |
+| 1 | The Linear Apartment | Herzliya | 7 | `/projects/the-linear-apartment` |
+| 2 | The Bronze House (in progress) | Herzliya | 11 | `/projects/the-bronze-house` |
+| 3 | The Courtyard Villa | Herzliya | 10 | `/projects/the-courtyard-villa` |
+| 4 | The Sage House | Herzliya | 11 | `/projects/the-sage-house` |
+| 5 | The Levanto House | Ra'anana | 11 | `/projects/the-levanto-house` |
+| 6 | Munters Office | Petah Tikva | 11 | `/projects/munters-office` |
+| 7 | The Ember Loft | Tel Aviv | 11 | `/projects/the-ember-loft` |
+| 8 | The Noir Apartment | Azur | 13 | `/projects/the-noir-apartment` |
+| 9 | The Travertine Apartment | Herzliya | 8 | `/projects/the-travertine-apartment` |
+| 10 | The Graphite Apartment | Tel Aviv | 9 | `/projects/the-graphite-apartment` |
 
 A separate project (travertine-and-dark-wood house with a suspended fireplace)
 is still held back until its content and photos are finalised.
@@ -117,11 +133,13 @@ is still held back until its content and photos are finalised.
 
 ## Structure
 ```
-index.html   - all 5 "pages" (Home, Projects, Studio, Contact, Legal)
-app.js       - routing, menus, accessibility settings, lightbox, hero
+index.html, studio.html, contact.html, legal.html, 404.html, projects/*.html
+app-init.js  - runs first: enables animations, forwards old #/ links
+app.js       - menus, accessibility settings, lightbox, hero, Start a Project
 fonts/       - Cormorant Garamond + Inter (woff2) and their licences
 images/      - name-800.webp / name-1600.webp / name-2400.webp per photo,
-               logo PNGs, og-image.jpg
+               logo PNGs, og-image.jpg, og/<project>.jpg
+sitemap.xml, robots.txt
 vercel.json  - security and cache headers
 ```
 

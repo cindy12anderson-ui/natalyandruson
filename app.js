@@ -5,28 +5,6 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
-  /* ---------- Project slugs (URL <-> key) ---------- */
-  var SLUGS = {
-    p3: 'linear', p10: 'bronze', p4: 'courtyard', p2: 'sage', p1: 'levanto',
-    p6: 'munters', p7: 'ember', p8: 'noir', p9: 'travertine', p5: 'graphite'
-  };
-  var KEYS = {};
-  Object.keys(SLUGS).forEach(function (k) { KEYS[SLUGS[k]] = k; });
-
-  var PAGES = ['home', 'projects', 'studio', 'contact', 'legal'];
-  var TITLES = {
-    home: 'Nataly Andruson - Architecture & Interior Design',
-    projects: 'Projects - Nataly Andruson',
-    studio: 'Studio - Nataly Andruson',
-    contact: 'Contact - Nataly Andruson',
-    legal: 'Legal Notice & Accessibility - Nataly Andruson'
-  };
-  var LEGAL_TARGETS = {
-    accessibility: 'legal-accessibility', privacy: 'legal-privacy', terms: 'legal-terms'
-  };
-
-  var currentPage = null;
-
   /* ---------- Hero: staggered lazy load + pause ---------- */
   (function initHero() {
     var slides = $$('.hero-slide img[data-src]');
@@ -89,108 +67,15 @@
   }
 
   /* ---------- Reveal on scroll ---------- */
-  var observer;
-  function initReveal() {
-    if (observer) observer.disconnect();
-    if (!('IntersectionObserver' in window)) {
-      $$('.page.active .reveal').forEach(function (el) { el.classList.add('in'); });
-      return;
-    }
-    observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }
-      });
+  (function initReveal() {
+    var els = $$('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (el) { el.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold: 0.01, rootMargin: '0px 0px 200px 0px' });
-    $$('.page.active .reveal').forEach(function (el) { observer.observe(el); });
-    clearTimeout(window.__revealFallback);
-    window.__revealFallback = setTimeout(function () {
-      $$('.page.active .reveal').forEach(function (el) { el.classList.add('in'); });
-    }, 2200);
-  }
-
-  /* ---------- Router (hash based: #/projects/bronze) ---------- */
-  function parseHash() {
-    var h = location.hash || '';
-    if (h.indexOf('#/') !== 0) return { page: 'home' };
-    var parts = h.slice(2).split('/').filter(Boolean);
-    var page = parts[0] || 'home';
-    if (PAGES.indexOf(page) === -1) page = 'home';
-    return { page: page, sub: parts[1] || null };
-  }
-
-  function setActiveProject(key) {
-    $$('.editorial-project').forEach(function (el) {
-      el.classList.toggle('active-project', el.id === 'project-' + key);
-    });
-    $$('.proj-tab').forEach(function (btn) {
-      var on = btn.dataset.project === key;
-      btn.classList.toggle('active', on);
-      if (on) btn.setAttribute('aria-current', 'true'); else btn.removeAttribute('aria-current');
-    });
-  }
-
-  function render(opts) {
-    opts = opts || {};
-    var r = parseHash();
-    var samePage = r.page === currentPage;
-
-    $$('.page').forEach(function (p) { p.classList.remove('active'); });
-    $('#page-' + r.page).classList.add('active');
-    $$('.nav-link, .mobile-menu-link').forEach(function (l) {
-      var on = l.getAttribute('data-page') === r.page;
-      l.classList.toggle('active', on);
-      if (on) l.setAttribute('aria-current', 'page'); else l.removeAttribute('aria-current');
-    });
-    closeMenus();
-    closeLightbox(true);
-
-    var title = TITLES[r.page];
-    var scrollTarget = null;
-
-    if (r.page === 'projects') {
-      var key = (r.sub && KEYS[r.sub]) || 'p3';
-      setActiveProject(key);
-      var tab = $('.proj-tab[data-project="' + key + '"]');
-      if (r.sub && tab) title = tab.textContent + ' - Nataly Andruson';
-      if (samePage && opts.fromTab) scrollTarget = $('#proj-tabbar');
-    }
-    if (r.page === 'legal' && r.sub && LEGAL_TARGETS[r.sub]) {
-      scrollTarget = document.getElementById(LEGAL_TARGETS[r.sub]);
-    }
-    document.title = title;
-    currentPage = r.page;
-    initReveal();
-
-    var behavior = reduceMotion ? 'auto' : 'smooth';
-    if (scrollTarget) {
-      requestAnimationFrame(function () { scrollTarget.scrollIntoView({ behavior: behavior, block: 'start' }); });
-    } else {
-      window.scrollTo({ top: 0, behavior: samePage ? behavior : 'auto' });
-    }
-
-    // Move focus to the new page heading so screen-reader users hear the change
-    if (!opts.initial && !opts.fromTab) {
-      var h = (scrollTarget && scrollTarget.tagName === 'H2') ? scrollTarget : $('#page-' + r.page + ' h1');
-      if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
-    }
-  }
-
-  function navigate(hash, opts) {
-    opts = opts || {};
-    if (location.hash === hash) { render(opts); return; }
-    if (opts.replace) {
-      history.replaceState(null, '', hash);
-      render(opts);
-    } else {
-      pendingOpts = opts;
-      location.hash = hash;
-    }
-  }
-  var pendingOpts = null;
-  window.addEventListener('hashchange', function () {
-    var o = pendingOpts || {}; pendingOpts = null;
-    render(o);
-  });
+    els.forEach(function (el) { io.observe(el); });
+    setTimeout(function () { els.forEach(function (el) { el.classList.add('in'); }); }, 2200);
+  })();
 
   /* ---------- Lightbox ---------- */
   var lbGallery = [], lbIndex = 0, lbReturnFocus = null;
@@ -209,7 +94,7 @@
     $('.lb-close').focus();
   }
   function closeLightbox(silent) {
-    if (!lb.classList.contains('open')) return;
+    if (!lb || !lb.classList.contains('open')) return;
     lb.classList.remove('open');
     lb.hidden = true;
     document.body.style.overflow = '';
@@ -284,24 +169,11 @@
 
   /* ---------- Single delegated click handler (no inline JS -> strict CSP) ---------- */
   document.addEventListener('click', function (e) {
-    var el = e.target.closest('[data-go],[data-action],[data-project],[data-lb]');
+    var el = e.target.closest('[data-action],[data-lb]');
     if (!el) return;
 
     if (el.dataset.lb) {
       openLightbox(el.dataset.lb, parseInt(el.dataset.i, 10) || 0, el);
-      return;
-    }
-    if (el.classList.contains('proj-tab')) {
-      e.preventDefault();
-      navigate('#/projects/' + SLUGS[el.dataset.project], { replace: currentPage === 'projects', fromTab: true });
-      return;
-    }
-    if (el.dataset.go) {
-      var href = el.getAttribute('href');
-      if (href && href.indexOf('#/') === 0) {
-        e.preventDefault();
-        navigate(href);
-      }
       return;
     }
     switch (el.dataset.action) {
@@ -330,7 +202,7 @@
   if (!reduceMotion) {
     var heroMarkInner = $('#hero-mark-inner'), heroEl = $('.hero');
     var parallax = function () {
-      if (!heroMarkInner || !heroEl || currentPage !== 'home') return;
+      if (!heroMarkInner || !heroEl || false) return;
       var h = heroEl.offsetHeight || window.innerHeight;
       var y = window.scrollY || window.pageYOffset;
       if (y < h) {
@@ -342,6 +214,4 @@
     parallax();
   }
 
-  /* ---------- Boot ---------- */
-  render({ initial: true });
 })();
