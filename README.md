@@ -48,6 +48,9 @@ Old links with `#/` (for example `/#/projects/bronze`) are forwarded by `app-ini
 - Privacy Policy matches the site: no cookies or local storage, no analytics, hosting by
   Vercel, how enquiries are used and kept, rights under Israeli law and the GDPR.
 - Automated WCAG 2.1 AA audit (axe-core) on every page: 0 violations.
+- Tabnav scan fixes: page landmarks (header = banner, footer = contentinfo, outside main),
+  accessibility-button icon marked decorative, and "(opens in a new window)" text for
+  screen readers on every external link.
 - Lighthouse (mobile, local server without compression): Accessibility 100, Best
   Practices 100, SEO 100, Performance 91-93 (Vercel adds compression, so higher live).
 - Verified: no cookies set, no broken internal links or missing files, no layout overflow

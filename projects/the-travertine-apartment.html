@@ -428,6 +428,7 @@ a.proj-tab{display:inline-block}
 
 <div class="wrap">
 
+<header class="site-header">
 <nav class="nav on-light" id="nav" aria-label="Main">
   <a class="nav-mark" href="/" aria-label="Nataly Andruson, home" style="display:flex;align-items:center;gap:9px">
     <img decoding="async" src="/images/logo_footer.png" alt="" class="nav-logo-mark" width="26" height="26">
@@ -447,9 +448,10 @@ a.proj-tab{display:inline-block}
     </button>
   </div>
 </nav>
+</header>
 
 <button class="a11y-float" data-action="a11y" aria-label="Accessibility options" aria-expanded="false" aria-controls="a11y-panel" id="a11y-toggle">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="6" r="1.4"/><path d="M6 9c2.5 1 11.5 1 14 0M12 7v6.5l-2.6 7.5M12 13.5L14.6 21"/></svg>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true" focusable="false"><circle cx="12" cy="6" r="1.4"/><path d="M6 9c2.5 1 11.5 1 14 0M12 7v6.5l-2.6 7.5M12 13.5L14.6 21"/></svg>
 </button>
 
 <div class="mobile-menu" id="mobile-menu">
@@ -526,7 +528,10 @@ a.proj-tab{display:inline-block}
     <div class="cta-band-text">Every Space Tells Its Own Story.</div>
     <a class="cta-band-btn" href="/contact">Begin a Conversation</a>
   </div>
-  <footer>
+</div>
+
+</main>
+<footer>
     <div class="foot-inner">
       <div class="foot-row">
         <div class="foot-brand">
@@ -542,18 +547,18 @@ a.proj-tab{display:inline-block}
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="3.5" y="6" width="17" height="12" rx="1"/><path d="M4.2 7l7.8 6 7.8-6"/></svg>
               <span class="foot-label">natalyandruson@gmail.com</span>
             </a>
-            <a class="foot-line" href="https://wa.me/972544314285" target="_blank" rel="noopener" aria-describedby="new-window">
+            <a class="foot-line" href="https://wa.me/972544314285" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M7 4h3l1.3 4-2 1.5c.8 2 2.2 3.4 4.2 4.2l1.5-2 4 1.3v3c0 1-.8 1.8-1.8 1.7-6.8-.6-12-5.8-12.6-12.6C4.5 4.6 5.5 4 6.5 4z"/></svg>
               <span class="foot-label"><span class="sr-only">WhatsApp </span>+972-54-431-4285</span>
-            </a>
-            <a class="foot-line" href="https://www.instagram.com/nataly_andruson_architecture" target="_blank" rel="noopener" aria-describedby="new-window">
+            <span class="sr-only"> (opens in a new window)</span></a>
+            <a class="foot-line" href="https://www.instagram.com/nataly_andruson_architecture" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.3"/><circle cx="16.3" cy="7.7" r=".55" fill="currentColor" stroke="none"/></svg>
               <span class="foot-label"><span class="sr-only">Instagram </span>@nataly_andruson_architecture</span>
-            </a>
-            <a class="foot-line" href="https://www.facebook.com/profile.php?id=100043262893972" target="_blank" rel="noopener" aria-describedby="new-window">
+            <span class="sr-only"> (opens in a new window)</span></a>
+            <a class="foot-line" href="https://www.facebook.com/profile.php?id=100043262893972" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M13.5 20.5v-7h2.4l.4-2.8h-2.8V8.9c0-.8.3-1.4 1.4-1.4h1.5V5c-.3 0-1.1-.1-2.1-.1-2.1 0-3.5 1.3-3.5 3.6v2.2H8.4v2.8h2.4v7"/></svg>
               <span class="foot-label">Facebook</span>
-            </a>
+            <span class="sr-only"> (opens in a new window)</span></a>
           </div>
           <div class="foot-links"><a href="/legal#legal-accessibility">Accessibility</a> · <a href="/legal#legal-privacy">Privacy Policy</a> · <a href="/legal#legal-terms">Terms &amp; Client Agreement</a></div>
         </div>
@@ -562,9 +567,6 @@ a.proj-tab{display:inline-block}
       <div class="foot-copy">© 2026 Nataly Andruson Studio. All Rights Reserved.</div>
     </div>
   </footer>
-</div>
-
-</main>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
   <button class="lb-close" data-action="lb-close" aria-label="Close image viewer">×</button>
@@ -576,7 +578,6 @@ a.proj-tab{display:inline-block}
 
 </div>
 
-<span id="new-window" hidden>Opens in a new window</span>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="/app.js" defer></script>
 
