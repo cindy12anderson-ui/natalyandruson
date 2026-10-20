@@ -45,6 +45,7 @@ Old links with `#/` (for example `/#/projects/bronze`) are forwarded by `app-ini
 - Google Search Console: Domain property verified by DNS TXT in Vercel; sitemap submitted.
 
 ## Final check (October 2026)
+- Studio page: Approach section removed at the client's request.
 - Privacy Policy matches the site: no cookies or local storage, no analytics, hosting by
   Vercel, how enquiries are used and kept, rights under Israeli law and the GDPR.
 - Automated WCAG 2.1 AA audit (axe-core) on every page: 0 violations.
