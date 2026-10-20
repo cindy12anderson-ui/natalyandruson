@@ -56,6 +56,13 @@ Old links with `#/` (for example `/#/projects/bronze`) are forwarded by `app-ini
 - Verified: no cookies set, no broken internal links or missing files, no layout overflow
   at 1440 / 768 / 390 / 320px, no console errors under the CSP.
 
+## Identity (October 2026 update)
+- Titles, descriptions and structured data now lead with "Architecture & Interior
+  Design" and "Architectural Practical Engineer and Interior Designer", Israeli-qualified.
+- LinkedIn profile added to the structured data (sameAs). Its address contains the word
+  "architect" - recommended to change it in LinkedIn (protected title in Israel) and
+  then update the URL in `build` / every page's JSON-LD.
+
 ## Still to review (outside the code)
 1. Lawyer and certified service-accessibility consultant review of the Legal page.
    Confirm the registration line (Practical Engineers and Technicians Law, 5773-2012).
