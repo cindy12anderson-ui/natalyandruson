@@ -263,7 +263,8 @@ a.nav-cta.nav-cta-mobile{display:none}
 
 /* ABOUT / studio bio */
 .studio-split{display:grid;grid-template-columns:40% 60%;border-bottom:0.5px solid var(--stone);align-items:start}
-.studio-split-img{overflow:hidden;align-self:start}
+.studio-split-img{overflow:hidden;align-self:start;position:sticky;top:var(--nav-h)}
+@media(max-width:860px){.studio-split-img{position:static}}
 .studio-split-img img{height:auto;object-fit:initial}
 .studio-split-content{padding:56px 48px;display:flex;flex-direction:column;justify-content:center}
 .studio-col-eyebrow{font-size:0.7188rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent-text);margin-bottom:18px}
@@ -408,6 +409,11 @@ footer{background:linear-gradient(180deg,var(--charcoal2) 0%,#141210 100%);color
 .toast.show{opacity:1;transform:translate(-50%,0)}
 @media(max-width:860px){.hamburger-btn{height:24px;padding:0 8px;gap:4px;border:1px solid rgba(34,31,28,.38);position:relative}.hamburger-btn::after{content:"";position:absolute;inset:-10px -6px}.hamburger-btn svg{width:11px;height:11px}.hamburger-label{font-size:.5625rem;letter-spacing:.14em;font-weight:400}}
 .masonry-sub,.contact-h,.intro-h,.ed-title{text-wrap:balance}
+.studio-approach{max-width:820px;margin:0 auto;padding:80px 28px 88px;text-align:center}
+.studio-approach .studio-col-eyebrow{margin-bottom:22px;font-weight:400}
+.studio-approach-lead{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(24px,2.4vw,30px);font-weight:300;line-height:1.4;color:var(--charcoal);margin-bottom:28px;text-wrap:balance}
+.studio-approach-p{font-size:1rem;line-height:1.85;color:var(--text-mid);margin:0 auto 15px;max-width:680px}
+@media(max-width:860px){.studio-approach{padding:52px 24px 60px}.studio-approach-lead{margin-bottom:22px}}
 a.proj-tab{display:inline-block}
 </style>
 </head>
