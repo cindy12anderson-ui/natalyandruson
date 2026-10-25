@@ -19,6 +19,11 @@
       "permanent": false
     },
     {
+      "source": "/studio",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
       "source": "/home",
       "destination": "/",
       "permanent": true

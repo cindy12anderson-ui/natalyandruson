@@ -8,7 +8,7 @@ GitHub repo `cindy12anderson-ui/natalyandruson`; Vercel deploys automatically on
 |---|---|
 | `/` | `index.html` |
 | `/projects/<project>` (10 pages) | `projects/<project>.html` |
-| `/studio` | `studio.html` |
+| `/about` (old `/studio` redirects here) | `about.html` |
 | `/contact` | `contact.html` |
 | `/legal` (+ `#legal-privacy`, `#legal-terms`, `#legal-accessibility`) | `legal.html` |
 | custom 404 | `404.html` |
@@ -77,7 +77,7 @@ Old links with `#/` (for example `/#/projects/bronze`) are forwarded by `app-ini
 
 ## Structure
 ```
-index.html, studio.html, contact.html, legal.html, 404.html, projects/*.html
+index.html, about.html, contact.html, legal.html, 404.html, projects/*.html
 app-init.js  - runs first: enables animations, forwards old #/ links
 app.js       - menus, accessibility settings, lightbox, hero, Start a Project
 fonts/       - Cormorant Garamond + Inter (woff2) and their licences
