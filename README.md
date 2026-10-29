@@ -64,6 +64,12 @@ Old links with `#/` (for example `/#/projects/bronze`) are forwarded by `app-ini
   "architect" - recommended to change it in LinkedIn (protected title in Israel) and
   then update the URL in `build` / every page's JSON-LD.
 
+## Accessibility round (late October 2026)
+- Section labels are now real headings (same look): home "Selected Works" and "Design
+  Philosophy", About page "About" and "Philosophy" (h2).
+- The Sage House: the two children's room photos now have distinct descriptions.
+- Re-checked with axe-core (WCAG 2.1 AA + best practices), desktop and mobile: 0 violations.
+
 ## Still to review (outside the code)
 1. Lawyer and certified service-accessibility consultant review of the Legal page.
    Confirm the registration line (Practical Engineers and Technicians Law, 5773-2012).
